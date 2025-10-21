@@ -1,2 +1,15 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+import LandingPage from "$lib/sections/LandingPage.svelte";
+</script>
+<main>
+
+  <LandingPage/>
+</main>
+
+<style>
+main{
+  font-family: SuisseIntl, sans-serif;
+  color: rgb(29, 29, 29);
+  height: fit-content;
+}
+</style>
