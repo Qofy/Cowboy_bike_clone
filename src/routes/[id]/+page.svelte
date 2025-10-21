@@ -1,21 +1,8 @@
 <script>
   import { page } from '$app/stores';
-  import Header from '$lib/component/Header.svelte';
-  import Footer from '$lib/component/Footer.svelte';
   import Bike_data from '$lib/data/bike_data.js';
-  import accessories_data from '$lib/data/accessory_data.js';
-  import service_data from '$lib/data/service.js';
-  
   $: id = parseInt($page.params.id);
-  
-  $: allItems = [
-    ...Bike_data.map(bike => ({ ...bike, type: 'bike' })),
-    ...accessories_data.map(accessory => ({ ...accessory, type: 'accessory' })),
-    ...service_data.map(service => ({ ...service, type: 'service' }))
-  ];
-  
-  $: item = allItems.find(item => item.id === id);
-  $: itemType = item?.type;
+  $: item = Bike_data.find(bike => bike.id === id);
 </script>
 
 <svelte:head>
@@ -23,7 +10,7 @@
 </svelte:head>
 
 <main>
-  <Header showHero={false} />
+  <!-- <Header showHero={false} /> -->
   
   {#if item}
     <section class="item-detail">
@@ -64,7 +51,6 @@
     </section>
   {/if}
   
-  <Footer />
 </main>
 
 <style>

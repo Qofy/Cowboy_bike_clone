@@ -56,8 +56,8 @@
 
 <style>
   .sidebar {
-    width: 100%;
-    height: 100%;
+    width: 20rem;
+    height: 60rem;
     background-image: linear-gradient(to bottom, #fbb900, #f6d98b);
     border-radius: 5px;
     padding: 1rem;

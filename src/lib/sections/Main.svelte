@@ -9,7 +9,7 @@ import Sidebar from "$lib/components/Sidebar.svelte";
     <div></div>
     <div></div>
   </div>
-<div>
+<div class="sort">
   <Sidebar/>
   <Main/>
 </div>
@@ -18,5 +18,8 @@ import Sidebar from "$lib/components/Sidebar.svelte";
 
 
 <style>
-  /* your styles go here */
+  .sort{
+    display: flex;
+    gap: 2rem;
+  }
 </style>
