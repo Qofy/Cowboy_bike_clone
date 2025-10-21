@@ -1,9 +1,9 @@
 <script>
   import HeroSection from "./HeroSection.svelte";
+  import Main from "./Main.svelte";
 </script>
 
-
-
-<h1>
+<div>
   <HeroSection/>
-</h1>
+  <Main/>
+</div>
