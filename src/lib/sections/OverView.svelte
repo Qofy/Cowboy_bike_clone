@@ -4,12 +4,14 @@
   import im2 from "../images/im2.png";
   import im3 from "../images/im3.png";
   import img4 from "../images/img4.png";
+  import "../style/style.css"
 
   let header ="Meet the Easy Rider. With a raised <br>cockpit, curved handlebars and a <br> slim diamond frame, the cruiser is <br> made for relaxed sliding.";
 
   let imgs= [OverView, im1, im2, im3, img4];
   let src= imgs[0];
-
+let yours_price = "2,999 €"
+let already = 'Already off <span class="font-bold">257 €/month</span> or in 3 paments at 0% interest with <span class="font-bold">Klarna</span>'
 </script>
 
 <div class="main">
@@ -30,8 +32,13 @@
     <img src={src} alt="overviewImg">
   </div>
   
-  <div>
-    
+  <div class="my-0 mx-auto flex flex-col justify-center items-center">
+    <p class="text-center text-[1.3rem]">Your form {yours_price}</p>
+    <p class="text-center text-[1.3rem]">{@html already}</p>
+    <div class="btn">
+      <button class="px-18 bg-black text-white py-4 rounded-[50px]">Configure</button>
+      <button class="px-12 bg-black text-white py-4 rounded-[50px]">Book a test drive</button>
+    </div>
   </div>
 </div>
 

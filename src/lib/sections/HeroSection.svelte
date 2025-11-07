@@ -1,10 +1,12 @@
 <script>
   import Header from "./Header.svelte";
+  import { onMount } from 'svelte';
+  
   let sub = "We are looking for reinfocements for the sales!"
 </script>
 
-<div class="content">
-  <Header/>
+<div class="content" bind:this={heroElement}>
+    <Header/>
 
   <div class="cts">
     <h2>{sub}</h2>
