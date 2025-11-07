@@ -15,7 +15,7 @@ let already = 'Already off <span class="font-bold">257 €/month</span> or in 3 
 </script>
 
 <div class="main">
-  <h1 class="header">
+  <h1 class="headers">
     {@html header}
   </h1>
 
@@ -35,11 +35,13 @@ let already = 'Already off <span class="font-bold">257 €/month</span> or in 3 
   <div class="my-0 mx-auto flex flex-col justify-center items-center">
     <p class="text-center text-[1.3rem]">Your form {yours_price}</p>
     <p class="text-center text-[1.3rem]">{@html already}</p>
-    <div class="btn">
-      <button class="px-18 bg-black text-white py-4 rounded-[50px]">Configure</button>
-      <button class="px-12 bg-black text-white py-4 rounded-[50px]">Book a test drive</button>
+    <div class="btn mt-5">
+      <button class="px-18 bg-black text-white py-4 rounded-[50px] hover:bg-[white] hover:text-[black]">Configure</button>
+      <button class="px-12 bg-black text-white py-4 rounded-[50px] hover:bg-[white] hover:text-[black]">Book a test drive</button>
     </div>
   </div>
+
+
 </div>
 
 <style>
@@ -48,10 +50,11 @@ let already = 'Already off <span class="font-bold">257 €/month</span> or in 3 
   flex-direction: column;
   margin: 0 2rem;
 }
-.header{
+.headers{
   text-align: center;
   font-weight: 400;
   font-size: 3.3rem;
+  margin: 0;
  /* margin: 1 auto; */
  
 }
