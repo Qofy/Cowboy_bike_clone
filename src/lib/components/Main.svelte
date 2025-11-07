@@ -52,12 +52,12 @@
 
   .content-header {
     padding: 1.5rem 0;
-    border-bottom: 3px solid #fbb900;
+    border-bottom: 3px solid #f3e7c5;
     margin-bottom: 2rem;
   }
 
   .content-header h1 {
-    color: #c51a1b;
+    color: #181717;
     margin: 0;
     font-size: 2rem;
     display: flex;
@@ -86,7 +86,7 @@
   }
 
   .no-results h3 {
-    color: #c51a1b;
+    color: #2f2e2e;
     margin-bottom: 1rem;
     font-size: 1.5rem;
   }

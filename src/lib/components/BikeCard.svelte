@@ -60,18 +60,18 @@
   .content {
     padding: 1rem;
     height: 200px;
-    background-image: linear-gradient(to bottom, #f6d98b, #f6f3ec);
+    background-image: linear-gradient(to bottom, #faf3de, #f6f3ec);
     display: flex;
     flex-direction: column;
   }
 
   .content h2 {
-    color: #c51a1b;
+    color: #1b1a1a;
     margin-bottom: 0.5rem;
   }
 
   .content p {
-    color: #5f5e5e;
+    color: #727070;
     margin-bottom: 1rem;
     flex-grow: 1;
   }
@@ -100,8 +100,8 @@
     right: 1rem;
     display: inline-block;
     padding: 8px 16px;
-    background-color: #c51a1b;
-    color: white;
+    background-color: #f1e8db;
+    color: rgb(36, 35, 35);
     text-decoration: none;
     border-radius: 4px;
     font-size: 0.875rem;

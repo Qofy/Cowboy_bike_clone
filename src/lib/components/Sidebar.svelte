@@ -58,7 +58,7 @@
   .sidebar {
     width: 20rem;
     height: 60rem;
-    background-image: linear-gradient(to bottom, #fbb900, #f6d98b);
+    background-image: linear-gradient(30deg, rgb(250, 242, 232) 14.44%, rgb(239, 230, 216) 81.18%);
     border-radius: 5px;
     padding: 1rem;
     box-sizing: border-box;
@@ -76,7 +76,7 @@
   h2 {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: #ffffff;
+    color: #201f1f;
     font-weight: bold;
   }
 
@@ -96,13 +96,13 @@
   }
 
   nav li:hover {
-    background-color: #f6c746;
+    background-color: rgb(239, 230, 216);
     transform: translateX(2px);
   }
 
   nav li.active {
-    background-color: #e6a700;
-    border-left: 4px solid #c51a1b;
+    background-color: rgb(248, 237, 219);
+    border-left: 4px solid #c5ab1a;
   }
 
   .filter-button {
@@ -125,7 +125,7 @@
   }
 
   .filter-button.current {
-    color: #ffffff;
+    color: #2d2c2c;
     font-weight: bold;
   }
 
