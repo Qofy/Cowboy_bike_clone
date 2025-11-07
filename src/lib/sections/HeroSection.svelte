@@ -46,9 +46,9 @@
 .content{
   height: 98dvh;
   width: 100%;
-  background-image: linear-gradient(30deg, rgb(250, 242, 232) 14.44%, rgb(239, 230, 216) 81.18%);
+  /* background-image: linear-gradient(30deg, rgb(250, 242, 232) 14.44%, rgb(239, 230, 216) 81.18%); */
   position: relative;
-  margin: 0;
+  margin-bottom: 5rem;
 }
 
 .cts{
@@ -57,8 +57,13 @@
   justify-content: center;
   align-items: center;
 }
+.cts img{
+  width: 100%;
+  object-fit: cover;
+
+}
 .info{
-  background-color: rgb(239, 230, 216);
+   background-color: rgb(239, 230, 216); 
   width:200px;
   padding: 1rem;
   position: absolute;

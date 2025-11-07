@@ -22,7 +22,7 @@
         <div class="item-info">
           <div class="breadcrumb">
             <a href="/">Home</a> › 
-            <a href="/{itemType === 'bike' ? '' : 'accessories'}">{itemType === 'bike' ? 'Bikes' : 'Accessories'}</a> › 
+            <a href="/">Bikes</a> › 
             <span>{item.name}</span>
           </div>
           
