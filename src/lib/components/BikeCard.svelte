@@ -31,7 +31,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    height: 450px;
+    height: 420px;
     background-image: linear-gradient(to top, #ffffff, #fdfdfd);
     margin: 0;
     padding: 0;

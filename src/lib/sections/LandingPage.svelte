@@ -13,9 +13,9 @@
 </div>
 
 <style>
-  /* .main{
+   .main{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  } */
+  }
 </style>

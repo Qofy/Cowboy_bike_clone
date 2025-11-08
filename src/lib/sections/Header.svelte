@@ -29,6 +29,7 @@ onMount(() => {
   <nav>
     {#each navs as nav}
       <li>
+        <!-- svelte-ignore a11y_invalid_attribute -->
         <a href="#" on:click={(e) => e.preventDefault()}>
           {nav}
         </a>

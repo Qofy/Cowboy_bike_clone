@@ -1,14 +1,15 @@
 <script>
 import logo from "../assets/logo.png";
 import { onMount } from 'svelte';
+import "../style/style.css"
 
-const navs = ["contact", "product-view"];
+const navs = ["Cruiser", "Overview", "Performance", "Design", "Connectivity", "Technical data"];
 </script>
 
 <header 
   class="sticky-header" 
 >
-  <img src={logo} alt="Logo">
+  <!-- <img src={logo} alt="Logo"> -->
   <nav>
     {#each navs as nav}
       <li>
@@ -19,16 +20,21 @@ const navs = ["contact", "product-view"];
       </li>
     {/each}
   </nav>
+
+  <div class="text-[#999999] flex gap-5 items-center text-[14px]">
+    <p>Configure</p>
+    <button class="text-black bg-white px-4 py-1.5 rounded-[50px]">Test Drive</button>
+  </div>
 </header>
 
 <style>
   .sticky-header {
-    height: 60px;
+    height: 56px;
     display: flex;
     padding: 0 3.5rem;
     align-items: center;
     justify-content: space-between;
-    background-color: bisque;
+    background-color: #1d1d1d;
     /* opacity: 0; */
     position: fixed;
     top: 0;
@@ -41,9 +47,6 @@ const navs = ["contact", "product-view"];
     animation-range: 0 100vh;
   }
 
-  .sticky-header img {
-    width: 120px;
-  }
 
   nav {
     display: flex;
@@ -57,8 +60,8 @@ const navs = ["contact", "product-view"];
 
   nav a {
     text-decoration: none;
-    color: rgb(29, 29, 29);
-    font-size: 1.3rem;
+    color: #999999;
+    font-size: 14px;
   }
 
   @keyframes stickytoggle {

@@ -9,9 +9,10 @@
 
 <div class="content">
   <Header/>
-  <div class="cts">
+  <!-- <div class="cts"> -->
+    <div class="gradient-overlay"></div>
       <img src={bg} alt="bike">
-  </div>
+  <!-- </div> -->
   <div class="info">
     <div  class="info-content">
       <p>
@@ -52,29 +53,44 @@
   /* background-image: linear-gradient(30deg, rgb(250, 242, 232) 14.44%, rgb(239, 230, 216) 81.18%); */
   position: relative;
   margin-bottom: 5rem;
-  z-index: 200; 
-}
+  /* background-image: linear-gradient(to bottom, #15151575 , rgba(128, 128, 128, 0.59), white); */
 
-.cts{
+  z-index: 200; 
+  background-color: red;
+}
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+   height: 100%;
+  background-image: linear-gradient(to bottom, rgba(22, 22, 22, 0.46) 0%, rgba(44, 43, 43, 0.59) 50%, rgba(66, 66, 66, 0.8) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+/* .cts{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.cts img{
+} */
+ img{
   width: 100%;
+  height: 100%;
   object-fit: cover;
-
+  filter: contrast(.8);
+  /* background-image: linear-gradient(to bottom, #15151575 30%, rgba(128, 128, 128, 0.59) 50%, white 20%); */
 }
 .info{
    background-color: rgb(239, 230, 216); 
-  width:200px;
+  width:150px;
   padding: 1rem;
   position: absolute;
-  top: 229px;
-  left: 230px;
+  top: 80px;
+  left: 1255px;
+  z-index: 100;
 
-  transform: rotate(-20deg);
+  /* transform: rotate(-20deg); */
 }
 
 .info-content{
@@ -94,5 +110,6 @@
   position: absolute;
   top: 76%;
   right: 40%;
+  z-index: 100;
 }
 </style>
