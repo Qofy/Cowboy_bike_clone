@@ -45,6 +45,7 @@ onMount(() => {
     padding: 0 3.5rem;
     align-items: center;
     justify-content: space-between;
+    /* background-color: bisque; */
     position: fixed;
     top: 0;
     left: 0;
@@ -67,7 +68,7 @@ nav li{
 }
 nav a{
   text-decoration: none;
-  color: rgb(29, 29, 29);
+    color: #ffff;
   font-size: 1.3rem;
 }
 

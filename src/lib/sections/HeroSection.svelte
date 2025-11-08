@@ -1,16 +1,16 @@
 <script>
   import Header from "./Header.svelte";
   import { onMount } from 'svelte';
+	import StickeyHeader from "./StickeyHeader.svelte";
+  import bg from "../images/bg.jpg"
   
   let sub = "We are looking for reinfocements for the sales!"
 </script>
 
-<div class="content" bind:this={heroElement}>
-    <Header/>
-
+<div class="content">
+  <Header/>
   <div class="cts">
-    <h2>{sub}</h2>
-      <img src="https://velophil.berlin/wp-content/uploads/2024/03/velophil-berlin-harz-Bikeventure_Ebike.png" alt="bike">
+      <img src={bg} alt="bike">
   </div>
   <div class="info">
     <div  class="info-content">
@@ -43,14 +43,16 @@
     &darr;
   </button>
 </div>
+<StickeyHeader/>
 
 <style>
 .content{
-  height: 98dvh;
+  height: 100dvh;
   width: 100%;
   /* background-image: linear-gradient(30deg, rgb(250, 242, 232) 14.44%, rgb(239, 230, 216) 81.18%); */
   position: relative;
   margin-bottom: 5rem;
+  z-index: 200; 
 }
 
 .cts{
