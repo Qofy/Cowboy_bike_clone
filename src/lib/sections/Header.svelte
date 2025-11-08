@@ -47,11 +47,12 @@ onMount(() => {
     align-items: center;
     justify-content: space-between;
     /* background-color: bisque; */
+    background-image: linear-gradient(to bottom right, #e1d7bd, #ece6d6, #efeadc);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 200;
     will-change: transform, opacity;
   }
 
@@ -69,7 +70,7 @@ nav li{
 }
 nav a{
   text-decoration: none;
-    color: #ffff;
+    color: #d33d31;
   font-size: 1.3rem;
 }
 

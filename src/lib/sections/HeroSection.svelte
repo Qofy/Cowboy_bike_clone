@@ -56,7 +56,6 @@
   /* background-image: linear-gradient(to bottom, #15151575 , rgba(128, 128, 128, 0.59), white); */
 
   z-index: 200; 
-  background-color: red;
 }
 .gradient-overlay {
   position: absolute;
@@ -82,7 +81,7 @@
   /* background-image: linear-gradient(to bottom, #15151575 30%, rgba(128, 128, 128, 0.59) 50%, white 20%); */
 }
 .info{
-   background-color: rgb(239, 230, 216); 
+   background-color: #f59e0b; 
   width:150px;
   padding: 1rem;
   position: absolute;
@@ -92,7 +91,9 @@
 
   /* transform: rotate(-20deg); */
 }
-
+.info:hover{
+  background-color: #fabe57;
+}
 .info-content{
   width: 140;
   font-size: 1rem;

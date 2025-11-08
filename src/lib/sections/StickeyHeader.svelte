@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import { onMount } from 'svelte';
 import "../style/style.css"
 
-const navs = ["Cruiser", "Overview", "Performance", "Design", "Connectivity", "Technical data"];
+const navs = ["Wheels", "Overview", "Accessories", "Service", "Ergonomics", "Activities", "Gallery", "About us", "Contact", "Newsletter"];
 </script>
 
 <header 
@@ -21,7 +21,7 @@ const navs = ["Cruiser", "Overview", "Performance", "Design", "Connectivity", "T
     {/each}
   </nav>
 
-  <div class="text-[#999999] flex gap-5 items-center text-[14px]">
+  <div class="text-white flex gap-5 items-center text-[14px]">
     <p>Configure</p>
     <button class="text-black bg-white px-4 py-1.5 rounded-[50px]">Test Drive</button>
   </div>
@@ -34,7 +34,7 @@ const navs = ["Cruiser", "Overview", "Performance", "Design", "Connectivity", "T
     padding: 0 3.5rem;
     align-items: center;
     justify-content: space-between;
-    background-color: #1d1d1d;
+    background-color: #f59e0b;
     /* opacity: 0; */
     position: fixed;
     top: 0;
@@ -60,7 +60,7 @@ const navs = ["Cruiser", "Overview", "Performance", "Design", "Connectivity", "T
 
   nav a {
     text-decoration: none;
-    color: #999999;
+    color: #fff;
     font-size: 14px;
   }
 

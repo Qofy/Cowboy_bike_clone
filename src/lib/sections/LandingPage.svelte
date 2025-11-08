@@ -7,7 +7,6 @@
 <!-- <StickeyHeader/> -->
 <div class="main">
   <HeroSection/>
-
   <Main/>
   <OverView/>
 </div>
