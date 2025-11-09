@@ -6,7 +6,7 @@
   import img4 from "../images/img4.png";
   import "../style/style.css"
 
-  let header ="Meet the Easy Rider. With a raised <br>cockpit, curved handlebars and a <br> slim diamond frame, the cruiser is <br> made for relaxed sliding.";
+  let header ="Meet the Easy Rider. With a raised cockpit, curved handlebars and a  slim diamond frame, the cruiser is  made for relaxed sliding.";
 
   let imgs= [OverView, im1, im2, im3, img4];
   let src= imgs[0];
@@ -53,9 +53,9 @@ let already = 'Already off <span class="font-bold">257 €/month</span> or in 3 
 .headers{
   text-align: center;
   font-weight: 400;
-  font-size: 3.3rem;
-  margin: 0;
- /* margin: 1 auto; */
+  font-size: 3rem;
+  width: 47rem;
+  margin: 0 auto;
  
 }
 .img-overview{

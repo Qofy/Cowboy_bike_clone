@@ -60,7 +60,7 @@
   .content {
     padding: 1rem;
     height: 200px;
-    background-image: linear-gradient(to bottom, #faf3de, #f6f3ec);
+    background-image: linear-gradient(to bottom, #e9e1ce, #f6f3ec);
     display: flex;
     flex-direction: column;
   }
@@ -100,10 +100,10 @@
     right: 1rem;
     display: inline-block;
     padding: 8px 16px;
-    background-color: #f1e8db;
-    color: rgb(36, 35, 35);
+    background-color: #c51a1b;
+    color: #fff;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 500;
     cursor: pointer;

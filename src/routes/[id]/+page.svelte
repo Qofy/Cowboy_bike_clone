@@ -1,6 +1,6 @@
 <script>
   import { page } from '$app/stores';
-  import Bike_data from '$lib/data/bike_data.js';
+  import Bike_data from '../../lib/data/bike_data.js';
   $: id = parseInt($page.params.id);
   $: item = Bike_data.find(bike => bike.id === id);
 </script>

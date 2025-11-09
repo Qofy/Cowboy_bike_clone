@@ -1,6 +1,6 @@
 <script>
   import BikeCard from './BikeCard.svelte';
-  import Bike_data from '$lib/data/bike_data';
+  import Bike_data from '../data/bike_data';
   import { currentFilter, filterContent } from '$lib/stores/contentStore';
 
   const bikeCardClass = "bike-card";

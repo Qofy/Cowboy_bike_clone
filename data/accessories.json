@@ -345,45 +345,6 @@
         }
       },
       {
-        "postId": "6934",
-        "link": "https:\/\/velophil.berlin\/zubehoer\/ortlieb-care-bag\/",
-        "title": "Ortlieb Care-Bag",
-        "menu_order": "9",
-        "text": "Upcycling bei Ortlieb.\r\nSeit 40 Jahren steht der Name Ortlieb f\u00fcr h\u00f6chste Qualit\u00e4t und die Taschen aus Heilsbronn setzen die Me\u00dflatte f\u00fcr wasserdichte Fahrrad- und Outdoorausr\u00fcstung.\r\nAber auch in der Produktion von Ortlieb geht mal etwas d\u2026",
-        "src": "https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-150x150.png",
-        "original_src": "https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-150x150.png",
-        "srcSet": "https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-150x150.png 150w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-297x198.png 297w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-1160x773.png 1160w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-100x67.png 100w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-1000x667.png 1000w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-1000x1000.png 1000w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-1000x667.png 1000w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-660x440.png 660w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-660x660.png 660w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-660x742.png 660w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-373x248.png 373w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-373x373.png 373w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-373x420.png 373w",
-        "taxonomies": {
-          "Ortlieb": "zumarke",
-          "Taschen & K\u00f6rbe": "zubehoerart"
-        },
-        "taxonomies_slugged": {
-          "ortlieb": "zumarke",
-          "taschen": "zubehoerart"
-        },
-        "srcMax": 1160,
-        "srcMin": 100,
-        "file": "https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling.png",
-        "file_exists": true,
-        "width": 1920,
-        "height": 1280,
-        "seoTitle": "Ortlieb Care-Bag - velophil|Fahrradhandel-Werkstatt-Beratung",
-        "seoAlt": "Ortlieb Care-Bag - velophil|Fahrradhandel-Werkstatt-Beratung",
-        "seoDesc": "Upcycling bei Ortlieb.\r\nSeit 40 Jahren steht der Name Ortlieb f\u00fcr h\u00f6chste Qualit\u00e4t und die Taschen aus Heilsbronn setzen die Me\u00dflatte f\u00fcr wasserdichte Fahrrad- und Outdoorausr\u00fcstung.\r\nAber auch in der Produktion von Ortlieb geht mal etwas daneben: ein Loch f\u00fcr Haken oder R\u00fcckenplatte sitzt nicht da wo es soll oder ist zu viel etc. Statt a\u2026",
-        "taxonomies_named_slugged": {
-          "ortlieb": "Ortlieb",
-          "taschen": "Taschen & K\u00f6rbe"
-        },
-        "taxonomies_grouped": {
-          "zumarke": {
-            "Ortlieb": "ortlieb"
-          },
-          "zubehoerart": {
-            "Taschen & K\u00f6rbe": "taschen"
-          }
-        }
-      },
-      {
         "postId": "6567",
         "link": "https:\/\/velophil.berlin\/zubehoer\/ortlieb-lenker-montageset-qr\/",
         "title": "Ortlieb Lenker Montageset QR",
@@ -591,6 +552,45 @@
           },
           "zubehoerart": {
             "Helm": "helm"
+          }
+        }
+      },
+      {
+        "postId": "6934",
+        "link": "https:\/\/velophil.berlin\/zubehoer\/ortlieb-care-bag\/",
+        "title": "Ortlieb Care-Bag",
+        "menu_order": "9",
+        "text": "Upcycling bei Ortlieb.\r\nSeit 40 Jahren steht der Name Ortlieb f\u00fcr h\u00f6chste Qualit\u00e4t und die Taschen aus Heilsbronn setzen die Me\u00dflatte f\u00fcr wasserdichte Fahrrad- und Outdoorausr\u00fcstung.\r\nAber auch in der Produktion von Ortlieb geht mal etwas d\u2026",
+        "src": "https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-150x150.png",
+        "original_src": "https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-150x150.png",
+        "srcSet": "https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-150x150.png 150w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-297x198.png 297w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-1160x773.png 1160w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-100x67.png 100w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-1000x667.png 1000w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-1000x1000.png 1000w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-1000x667.png 1000w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-660x440.png 660w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-660x660.png 660w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-660x742.png 660w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-373x248.png 373w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-373x373.png 373w,https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling-373x420.png 373w",
+        "taxonomies": {
+          "Ortlieb": "zumarke",
+          "Taschen & K\u00f6rbe": "zubehoerart"
+        },
+        "taxonomies_slugged": {
+          "ortlieb": "zumarke",
+          "taschen": "zubehoerart"
+        },
+        "srcMax": 1160,
+        "srcMin": 100,
+        "file": "https:\/\/velophil.berlin\/wp-content\/uploads\/2023\/10\/velophil_berlin_Ortlieb_care-bag_upcycling.png",
+        "file_exists": true,
+        "width": 1920,
+        "height": 1280,
+        "seoTitle": "Ortlieb Care-Bag - velophil|Fahrradhandel-Werkstatt-Beratung",
+        "seoAlt": "Ortlieb Care-Bag - velophil|Fahrradhandel-Werkstatt-Beratung",
+        "seoDesc": "Upcycling bei Ortlieb.\r\nSeit 40 Jahren steht der Name Ortlieb f\u00fcr h\u00f6chste Qualit\u00e4t und die Taschen aus Heilsbronn setzen die Me\u00dflatte f\u00fcr wasserdichte Fahrrad- und Outdoorausr\u00fcstung.\r\nAber auch in der Produktion von Ortlieb geht mal etwas daneben: ein Loch f\u00fcr Haken oder R\u00fcckenplatte sitzt nicht da wo es soll oder ist zu viel etc. Statt a\u2026",
+        "taxonomies_named_slugged": {
+          "ortlieb": "Ortlieb",
+          "taschen": "Taschen & K\u00f6rbe"
+        },
+        "taxonomies_grouped": {
+          "zumarke": {
+            "Ortlieb": "ortlieb"
+          },
+          "zubehoerart": {
+            "Taschen & K\u00f6rbe": "taschen"
           }
         }
       },

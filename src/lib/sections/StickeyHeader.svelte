@@ -34,7 +34,7 @@ const navs = ["Wheels", "Overview", "Accessories", "Service", "Ergonomics", "Act
     padding: 0 3.5rem;
     align-items: center;
     justify-content: space-between;
-    background-color: #f59e0b;
+    background-color: #fbb900;
     /* opacity: 0; */
     position: fixed;
     top: 0;

@@ -57,8 +57,8 @@
 <style>
   .sidebar {
     width: 20rem;
-    height: 60rem;
-    background-image: linear-gradient(30deg, rgb(250, 242, 232) 14.44%, rgb(239, 230, 216) 81.18%);
+    /* height: 60rem; */
+    background-image: linear-gradient(to bottom, #fbb900 14.44%, #f59e0b 81.18%);
     border-radius: 5px;
     padding: 1rem;
     box-sizing: border-box;
@@ -102,7 +102,7 @@
 
   nav li.active {
     background-color: rgb(248, 237, 219);
-    border-left: 4px solid #c5ab1a;
+    border-left: 4px solid #c53f1a;
   }
 
   .filter-button {
