@@ -108,7 +108,10 @@
         <!-- </div> -->
       {/each}
     </div>
-  {/if}
+    {/if}
+    <div class="flex justify-center mt-8">
+      <a href="#" class="bg-[#c51a1b] text-white px-5 py-2.5 rounded-[50px] font-bold"> View all > </a>
+    </div>
 </div>
 
 <style>

@@ -3,6 +3,7 @@
   import HeroSection from "./HeroSection.svelte";
   import Main from "./Main.svelte";
 	import OverView from "./OverView.svelte";
+	import Service from "./Service.svelte";
 	import StickeyHeader from "./StickeyHeader.svelte";
 </script>
 <!-- <StickeyHeader/> -->
@@ -11,6 +12,7 @@
   <Main/>
   <OverView/>
   <Accessories/>
+  <Service/>
 </div>
 
 <style>
