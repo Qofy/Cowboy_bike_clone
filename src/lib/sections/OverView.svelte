@@ -15,7 +15,7 @@ let already = 'Already off <span class="font-bold">257 €/month</span> or in 3 
 </script>
 
 <div class="main">
-  <h1 class="headers">
+  <h1 class="headers text-[#c51a1b]">
     {@html header}
   </h1>
 
@@ -36,8 +36,8 @@ let already = 'Already off <span class="font-bold">257 €/month</span> or in 3 
     <p class="text-center text-[1.3rem]">Your form {yours_price}</p>
     <p class="text-center text-[1.3rem]">{@html already}</p>
     <div class="btn mt-5">
-      <button class="px-18 bg-black text-white py-4 rounded-[50px] hover:bg-[white] hover:text-[black]">Configure</button>
-      <button class="px-12 bg-black text-white py-4 rounded-[50px] hover:bg-[white] hover:text-[black]">Book a test drive</button>
+      <button class="px-18 bg-[#c51a1b] text-white py-4 rounded-[50px] hover:bg-[white] hover:text-[black]">Configure</button>
+      <button class="px-12 bg-[#c51a1b] text-white py-4 rounded-[50px] hover:bg-[white] hover:text-[black]">Book a test drive</button>
     </div>
   </div>
 

@@ -1,4 +1,5 @@
 <script>
+	import Accessories from "./Accessories.svelte";
   import HeroSection from "./HeroSection.svelte";
   import Main from "./Main.svelte";
 	import OverView from "./OverView.svelte";
@@ -9,6 +10,7 @@
   <HeroSection/>
   <Main/>
   <OverView/>
+  <Accessories/>
 </div>
 
 <style>
