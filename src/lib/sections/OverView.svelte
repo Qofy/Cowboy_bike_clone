@@ -14,7 +14,7 @@ let yours_price = "2,999 €"
 let already = 'Already off <span class="font-bold">257 €/month</span> or in 3 paments at 0% interest with <span class="font-bold">Klarna</span>'
 </script>
 
-<div class="main">
+<div class="main" id="overview">
   <h1 class="headers text-[#c51a1b]">
     {@html header}
   </h1>

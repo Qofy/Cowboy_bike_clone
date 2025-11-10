@@ -4,6 +4,12 @@ import { onMount } from 'svelte';
 import "../style/style.css"
 
 const navs = ["Wheels", "Overview", "Accessories", "Service", "Ergonomics", "Activities", "Gallery", "About us", "Contact", "Newsletter"];
+
+$:navLink =navs.map((nav, i)=>nav.toLowerCase()
+)
+$:{
+  console.log("nav",navLink)
+}
 </script>
 
 <header 
@@ -14,7 +20,7 @@ const navs = ["Wheels", "Overview", "Accessories", "Service", "Ergonomics", "Act
     {#each navs as nav}
       <li>
         <!-- svelte-ignore a11y_invalid_attribute -->
-        <a href="#" on:click={(e) => e.preventDefault()}>
+        <a href="#{navLink}" on:click={(e) => e.preventDefault()}>
           {nav}
         </a>
       </li>

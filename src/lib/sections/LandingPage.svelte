@@ -4,7 +4,7 @@
   import Main from "./Main.svelte";
 	import OverView from "./OverView.svelte";
 	import Service from "./Service.svelte";
-	import StickeyHeader from "./StickeyHeader.svelte";
+	import StickeyHeader from "../components/StickeyHeader.svelte";
 </script>
 <!-- <StickeyHeader/> -->
 <div class="main">

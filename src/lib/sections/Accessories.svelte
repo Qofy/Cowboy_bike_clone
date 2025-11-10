@@ -54,7 +54,7 @@
   });
 </script>
 
-<div>
+<div id="accessories">
   <h1 class="text-[2rem] text-center text-[#c51a1b]">
     Accessories and spare parts
   </h1>

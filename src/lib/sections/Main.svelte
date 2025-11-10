@@ -9,7 +9,7 @@ import Sidebar from "$lib/components/Sidebar.svelte";
     <div></div>
     <div></div>
   </div>
-<div class="sort">
+<div class="sort" id="wheels">
   <Sidebar/>
   <Main/>
 </div>

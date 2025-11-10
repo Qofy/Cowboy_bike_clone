@@ -43,7 +43,7 @@
   })
 </script>
 
-<div>
+<div id="srevice">
   {#if loading}
     <p>Loading services...</p>
   {:else if error}
