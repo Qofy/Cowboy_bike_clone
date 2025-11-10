@@ -1,52 +1,110 @@
 <script>
+  import { onMount } from 'svelte';
   import { page } from '$app/stores';
-  import Bike_data from '../../lib/data/bike_data.js';
-  $: id = parseInt($page.params.id);
-  $: item = Bike_data.find(bike => bike.id === id);
+  
+  let item = null;
+  let loading = true;
+  let error = null;
+  
+  $: postId = $page.params.id;
+  
+  onMount(async () => {
+    try {
+      const response = await fetch("http://localhost:3003/0");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const json = await response.json();
+      
+      let bikes = [];
+      if (Array.isArray(json)) {
+        bikes = json;
+      } else if (json.data && Array.isArray(json.data)) {
+        bikes = json.data;
+      }
+      
+      // Find the bike by postId
+      item = bikes.find(bike => bike.postId === postId || bike.id === parseInt(postId));
+      
+      if (!item) {
+        error = 'Bike not found';
+      }
+    } catch(err) {
+      error = err.message;
+      console.error('Error fetching bike details:', err);
+    } finally {
+      loading = false;
+    }
+  });
 </script>
 
 <svelte:head>
-  <title>{item ? item.name : 'Item Not Found'} - Velophil</title>
+  <title>{item ? (item.title || item.name) : 'Item Not Found'} - Velophil</title>
 </svelte:head>
 
 <main>
   <!-- <Header showHero={false} /> -->
   
-  {#if item}
+  {#if loading}
+    <section class="loading-section">
+      <div class="container">
+        <p>Loading bike details...</p>
+      </div>
+    </section>
+  {:else if error || !item}
+    <section class="not-found">
+      <div class="container">
+        <h1>Item Not Found</h1>
+        <p>Sorry, we couldn't find the item you're looking for.</p>
+        {#if error}
+          <p class="error-msg">{error}</p>
+        {/if}
+        <a href="/" class="btn-primary">Back to Home</a>
+      </div>
+    </section>
+  {:else}
     <section class="item-detail">
       <div class="item-container">
         <div class="item-image">
-          <img src={item.image} alt={item.name} />
+          <img src={item.file || item.src || item.image} alt={item.title || item.name} />
         </div>
         
         <div class="item-info">
           <div class="breadcrumb">
             <a href="/">Home</a> › 
             <a href="/">Bikes</a> › 
-            <span>{item.name}</span>
+            <span>{item.title || item.name}</span>
           </div>
           
-          <h1>{item.name}</h1>
+          <h1>{item.title || item.name}</h1>
           
-          <div class="price">
-            <span class="price-label">Price:</span>
-            <span class="price-value">${item.price}</span>
-          </div>
+          {#if item.price}
+            <div class="price">
+              <span class="price-label">Price:</span>
+              <span class="price-value">${item.price}</span>
+            </div>
+          {/if}
           
           <div class="description">
             <h3>Description</h3>
-            <p>{item.description}</p>
+            <p>{@html item.text || item.description || 'No description available.'}</p>
           </div>
           
+          {#if item.taxonomies_named_slugged}
+            <div class="taxonomies">
+              <h3>Details</h3>
+              <div class="taxonomy-grid">
+                {#each Object.entries(item.taxonomies_named_slugged) as [key, value]}
+                  <div class="taxonomy-item">
+                    <span class="taxonomy-label">{value}:</span>
+                    <span class="taxonomy-value">{key}</span>
+                  </div>
+                {/each}
+              </div>
+            </div>
+          {/if}
+          
         </div>
-      </div>
-    </section>
-  {:else}
-    <section class="not-found">
-      <div class="container">
-        <h1>Item Not Found</h1>
-        <p>Sorry, we couldn't find the item you're looking for.</p>
-        <a href="/" class="btn-primary">Back to Home</a>
       </div>
     </section>
   {/if}
@@ -138,6 +196,54 @@
     line-height: 1.6;
   }
   
+  .taxonomies {
+    margin-top: 2rem;
+  }
+  
+  .taxonomies h3 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .taxonomy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .taxonomy-item {
+    background-color: #f5f5f5;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border-left: 3px solid #c51a1b;
+  }
+  
+  .taxonomy-label {
+    font-weight: 600;
+    color: #333;
+    margin-right: 0.5rem;
+  }
+  
+  .taxonomy-value {
+    color: #666;
+    text-transform: capitalize;
+  }
+  
+  .loading-section {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  
+  .loading-section p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .error-msg {
+    color: #c51a1b;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
   
   .btn-primary {
     background-color: #c51a1b;
@@ -149,6 +255,8 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
   }
   
   .btn-primary:hover {

@@ -12,7 +12,9 @@
 		"lint": "prettier --check . && eslint .",
 		"json-server": "json-server --watch data/accessories.json --port 3001",
 		"server": "json-server --watch data/service.json --port 3002",
-		"dev:all": "concurrently \"npm run dev\" \"npm run json-server\" \"npm run server\""
+		"server1": "json-server --watch data/bike_data.json --port 3003",
+
+		"dev:all": "concurrently \"npm run dev\" \"npm run json-server\" \"npm run server\" \"npm run server1\""
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",

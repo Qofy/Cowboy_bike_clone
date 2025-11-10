@@ -10,18 +10,20 @@
 </script>
 
 <div class={bikeCardClass}>
-  <a href="/{bike.id || (index + 1)}" class={imgClass}>
-    <img src={bike.image} alt={bike.name} />
+  <a href="/{bike.postId || bike.id || (index + 1)}" class={imgClass}>
+    <img src={bike.file || bike.src || bike.image} alt={bike.title || bike.name} />
   </a>
   <div class={contentClass}>
-    <h2>{bike.name}</h2>
-    <p>{bike.description}</p>
-    <div class="price">
-      <span class="price-label">Price:</span>
-      <span class="price-value">${bike.price}</span>
-    </div>
+    <h2>{bike.title || bike.name}</h2>
+    <p>{@html bike.text || bike.description || ''}</p>
+    {#if bike.price}
+      <div class="price">
+        <span class="price-label">Price:</span>
+        <span class="price-value">${bike.price}</span>
+      </div>
+    {/if}
   </div>
-  <a href="/{bike.id || (index + 1)}" class={MoreInfoClass}>More Info</a>
+  <a href="/{bike.postId || bike.id || (index + 1)}" class={MoreInfoClass}>More Info</a>
 </div>
 
 <style>

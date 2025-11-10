@@ -1,47 +1,108 @@
 <script>
+  import { onMount } from 'svelte';
   import BikeCard from './BikeCard.svelte';
-  import Bike_data from '../data/bike_data';
-  import { currentFilter, filterContent } from '$lib/stores/contentStore';
+  import { currentFilter } from '$lib/stores/contentStore';
 
   const bikeCardClass = "bike-card";
   const imgClass = "img";
   const contentClass = "content";
   const MoreInfoClass = "more-info";
 
-  $: filteredBikes = filterContent(Bike_data, $currentFilter);
+  let Bike_data = [];
+  let loading = true;
+  let error = null;
+
+  onMount(async () => {
+    try {
+      const response = await fetch("http://localhost:3003/0");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const json = await response.json();
+      
+      // Handle the data structure (could be array or nested object)
+      if (Array.isArray(json)) {
+        Bike_data = json;
+      } else if (json.data && Array.isArray(json.data)) {
+        Bike_data = json.data;
+      } else {
+        Bike_data = [];
+      }
+      
+      console.log("Fetched bikes:", Bike_data.length);
+    } catch(err) {
+      error = err.message;
+      console.error('Error fetching bikes:', err);
+    } finally {
+      loading = false;
+    }
+  });
+
+  // Get taxonomy classes for a bike
+  function getTaxonomyClasses(bike) {
+    if (!bike.taxonomies_slugged) return '';
+    return Object.keys(bike.taxonomies_slugged).join(' ');
+  }
+
+  // Check if bike should be visible based on current filter
+  function isVisible(bike, filter) {
+    if (filter === 'all' || filter === '' || !filter) return true;
+    if (!bike.taxonomies_slugged) return false;
+    const taxonomyKeys = Object.keys(bike.taxonomies_slugged).map(k => k.toLowerCase());
+    return taxonomyKeys.includes(filter.toLowerCase());
+  }
+
+  // Count visible bikes
+  $: visibleBikes = Bike_data.filter(bike => isVisible(bike, $currentFilter));
+  $: visibleCount = visibleBikes.length;
 </script>
 
-<section class="content-wrapper">
+<section class="content-wrapper" data-filter={$currentFilter}>
   <div class="content-header">
     <h1>
-      {#if $currentFilter === 'all'}
+      {#if $currentFilter === 'all' || $currentFilter === '' || !$currentFilter}
         All Bikes
       {:else}
         {$currentFilter.charAt(0).toUpperCase() + $currentFilter.slice(1)} Bikes
       {/if}
-      <span class="count">({filteredBikes.length})</span>
+      <span class="count">({visibleCount})</span>
     </h1>
   </div>
 
-  {#if filteredBikes.length > 0}
-    <div class="bikes-grid">
-      {#each filteredBikes as bike, index}
-        <BikeCard
-          {bike}
-          {index}
-          {bikeCardClass}
-          {imgClass}
-          {contentClass}
-          {MoreInfoClass}
-        />
-      {/each}
+  {#if loading}
+    <div class="loading">
+      <p>Loading bikes...</p>
+    </div>
+  {:else if error}
+    <div class="error">
+      <h3>Error loading bikes</h3>
+      <p>{error}</p>
+      <p>Make sure the json-server is running on port 3003</p>
     </div>
   {:else}
-    <div class="no-results">
-      <h3>No bikes found</h3>
-      <p>No bikes match the current filter: <strong>{$currentFilter}</strong></p>
-      <p>Try selecting a different category from the sidebar.</p>
+    <div class="bikes-grid">
+      {#each Bike_data as bike, index}
+        {#if isVisible(bike, $currentFilter)}
+          <div class="bike-wrapper {getTaxonomyClasses(bike)}">
+            <BikeCard
+              {bike}
+              {index}
+              {bikeCardClass}
+              {imgClass}
+              {contentClass}
+              {MoreInfoClass}
+            />
+          </div>
+        {/if}
+      {/each}
     </div>
+    {#if visibleCount === 0}
+      <div class="no-results">
+        <h3>No bikes found</h3>
+        <p>No bikes match the current filter: <strong>{$currentFilter}</strong></p>
+        <p>Try selecting a different category from the sidebar.</p>
+      </div>
+    {/if}
   {/if}
 </section>
 
@@ -77,6 +138,12 @@
     gap: 1.5rem;
   }
 
+  .bike-wrapper {
+    display: block;
+  }
+
+  .loading,
+  .error,
   .no-results {
     text-align: center;
     padding: 3rem;
@@ -85,12 +152,24 @@
     border: 2px dashed #ddd;
   }
 
+  .error {
+    background: linear-gradient(135deg, #fff0f0, #ffe0e0);
+    border-color: #ffcccc;
+  }
+
+  .loading p,
+  .error h3,
   .no-results h3 {
     color: #2f2e2e;
     margin-bottom: 1rem;
     font-size: 1.5rem;
   }
 
+  .loading p {
+    font-size: 1.2rem;
+  }
+
+  .error p,
   .no-results p {
     color: #666;
     margin-bottom: 0.5rem;

@@ -1,27 +1,90 @@
 <script>
+  import { onMount } from 'svelte';
   import { currentFilter } from '$lib/stores/contentStore';
   
-  // Define sidebar content categories
-  const sidebarItems = {
-    brands: {
-      name: 'Brands',
-      items: ['All Brands', 'VSF', 'Tout Terrain', 'Brompton', 'Giant', 'Trek', 'Specialized', 'Cannondale', 'Scott', 'Bianchi'],
-      keys: ['all', 'vsf', 'tout terrain', 'brompton', 'giant', 'trek', 'specialized', 'cannondale', 'scott', 'bianchi']
-    },
-    types: {
-      name: 'Bicycle Types',
-      items: ['All Types', 'Mountain', 'Road', 'Hybrid', 'Electric', 'Folding'],
-      keys: ['all', 'mountain', 'road', 'hybrid', 'electric', 'folding']
-    },
-    drive: {
-      name: 'Drive Systems',
-      items: ['All Drives', 'Chain', 'Belt', 'Gear', 'Single Speed'],
-      keys: ['all', 'chain', 'belt', 'gear', 'single speed']
-    }
+  let sidebarItems = {
+    marke: { name: 'Brands', items: [], keys: [] },
+    fahrradtyp: { name: 'Bicycle Types', items: [], keys: [] },
+    antrieb: { name: 'Drive Systems', items: [], keys: [] }
   };
   
-  // Current active filter
-  let activeFilter = 'all';
+  let loading = true;
+  
+  // Current active filter - default to empty (show all)
+  let activeFilter = '';
+  
+  // Function to extract unique values from taxonomies
+  function extractCategories(bikes) {
+    const marke = new Set();
+    const fahrradtyp = new Set();
+    const antrieb = new Set();
+    
+    bikes.forEach(bike => {
+      if (bike.taxonomies_slugged) {
+        Object.entries(bike.taxonomies_slugged).forEach(([key, category]) => {
+          if (category === 'marke') {
+            marke.add(key);
+          } else if (category === 'fahrradtyp') {
+            fahrradtyp.add(key);
+          } else if (category === 'antrieb') {
+            antrieb.add(key);
+          }
+        });
+      }
+    });
+    
+    // Convert to sorted arrays (without 'all')
+    const markeKeys = Array.from(marke).sort();
+    const fahrradtypKeys = Array.from(fahrradtyp).sort();
+    const antriebKeys = Array.from(antrieb).sort();
+    
+    // Create display names (capitalize properly)
+    const formatLabel = (key) => {
+      return key.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    };
+    
+    sidebarItems = {
+      marke: {
+        name: 'Brands',
+        items: markeKeys.map(formatLabel),
+        keys: markeKeys
+      },
+      fahrradtyp: {
+        name: 'Bicycle Types',
+        items: fahrradtypKeys.map(formatLabel),
+        keys: fahrradtypKeys
+      },
+      antrieb: {
+        name: 'Drive Systems',
+        items: antriebKeys.map(formatLabel),
+        keys: antriebKeys
+      }
+    };
+  }
+  
+  onMount(async () => {
+    try {
+      const response = await fetch("http://localhost:3003/0");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const json = await response.json();
+      
+      let bikes = [];
+      if (Array.isArray(json)) {
+        bikes = json;
+      } else if (json.data && Array.isArray(json.data)) {
+        bikes = json.data;
+      }
+      
+      extractCategories(bikes);
+    } catch(err) {
+      console.error('Error fetching sidebar data:', err);
+      // Keep default empty state
+    } finally {
+      loading = false;
+    }
+  });
   
   // Function to handle filter selection
   function handleFilterClick(filterKey, event) {
@@ -32,26 +95,32 @@
 </script>
 
 <aside class="sidebar">
-  {#each Object.entries(sidebarItems) as [categoryKey, { name, items, keys }]}
-    <div class="sidebar-section">
-      <h2>{name}</h2>
-      <nav>
-        <ul>
-          {#each items as item, index}
-            <li class:active={activeFilter === keys[index]}>
-              <button 
-                class="filter-button"
-                class:current={activeFilter === keys[index]}
-                on:click={(event) => handleFilterClick(keys[index], event)}
-              >
-                {item}
-              </button>
-            </li>
-          {/each}
-        </ul>
-      </nav>
+  {#if loading}
+    <div class="loading-state">
+      <p>Loading filters...</p>
     </div>
-  {/each} 
+  {:else}
+    {#each Object.entries(sidebarItems) as [categoryKey, { name, items, keys }]}
+      <div class="sidebar-section">
+        <h2>{name}</h2>
+        <nav>
+          <ul>
+            {#each items as item, index}
+              <li class:active={activeFilter === keys[index]}>
+                <button 
+                  class="filter-button"
+                  class:current={activeFilter === keys[index]}
+                  on:click={(event) => handleFilterClick(keys[index], event)}
+                >
+                  {item}
+                </button>
+              </li>
+            {/each}
+          </ul>
+        </nav>
+      </div>
+    {/each}
+  {/if}
 </aside>
 
 <style>
@@ -63,6 +132,17 @@
     padding: 1rem;
     box-sizing: border-box;
     overflow-y: auto;
+  }
+
+  .loading-state {
+    text-align: center;
+    padding: 2rem;
+    color: #2c2c2c;
+  }
+
+  .loading-state p {
+    font-size: 1rem;
+    font-weight: 500;
   }
 
   .sidebar-section {
