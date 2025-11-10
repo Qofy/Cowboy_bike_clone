@@ -27,6 +27,9 @@
 </div>
 
 <style>
+  /* .velotraum{
+  display: none;
+} */
   .bike-card {
     border: 1px solid #ddd;
     overflow: hidden;

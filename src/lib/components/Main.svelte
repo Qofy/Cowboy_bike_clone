@@ -44,17 +44,38 @@
     return Object.keys(bike.taxonomies_slugged).join(' ');
   }
 
-  // Check if bike should be visible based on current filter
-  function isVisible(bike, filter) {
-    if (filter === 'all' || filter === '' || !filter) return true;
-    if (!bike.taxonomies_slugged) return false;
-    const taxonomyKeys = Object.keys(bike.taxonomies_slugged).map(k => k.toLowerCase());
-    return taxonomyKeys.includes(filter.toLowerCase());
+  // Apply filter using inline styles for flexible matching
+  $: if (typeof document !== 'undefined' && Bike_data.length > 0 && $currentFilter !== undefined) {
+    setTimeout(() => {
+      const allWrappers = document.querySelectorAll('.bike-wrapper');
+      let count = 0;
+      
+      allWrappers.forEach(wrapper => {
+        if ($currentFilter === 'all' || $currentFilter === '') {
+          wrapper.style.display = 'block';
+          count++;
+        } else {
+          // Check if wrapper has a class that matches the filter (flexible matching)
+          const classes = wrapper.className.split(' ');
+          const hasMatch = classes.some(cls => 
+            cls.toLowerCase().includes($currentFilter.toLowerCase()) ||
+            $currentFilter.toLowerCase().includes(cls.toLowerCase())
+          );
+          
+          if (hasMatch) {
+            wrapper.style.display = 'block';
+            count++;
+          } else {
+            wrapper.style.display = 'none';
+          }
+        }
+      });
+      
+      visibleCount = count;
+    }, 50);
   }
-
-  // Count visible bikes
-  $: visibleBikes = Bike_data.filter(bike => isVisible(bike, $currentFilter));
-  $: visibleCount = visibleBikes.length;
+  
+  let visibleCount = 0;
 </script>
 
 <section class="content-wrapper" data-filter={$currentFilter}>
@@ -82,18 +103,16 @@
   {:else}
     <div class="bikes-grid">
       {#each Bike_data as bike, index}
-        {#if isVisible(bike, $currentFilter)}
-          <div class="bike-wrapper {getTaxonomyClasses(bike)}">
-            <BikeCard
-              {bike}
-              {index}
-              {bikeCardClass}
-              {imgClass}
-              {contentClass}
-              {MoreInfoClass}
-            />
-          </div>
-        {/if}
+        <div class="bike-wrapper {getTaxonomyClasses(bike)}">
+          <BikeCard
+            {bike}
+            {index}
+            {bikeCardClass}
+            {imgClass}
+            {contentClass}
+            {MoreInfoClass}
+          />
+        </div>
       {/each}
     </div>
     {#if visibleCount === 0}
@@ -107,6 +126,14 @@
 </section>
 
 <style>
+  .bike-wrapper {
+    display: none;
+  }
+
+  .stevens {
+    display: none;
+  }
+
   .content-wrapper {
     width: 100%;
   }
@@ -125,7 +152,10 @@
     align-items: center;
     gap: 1rem;
   }
-
+/* .stevens{
+  display: none;
+  width: 100rem;
+} */
   .count {
     font-size: 1.2rem;
     color: #999;

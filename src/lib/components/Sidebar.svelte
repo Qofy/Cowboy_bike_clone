@@ -3,15 +3,15 @@
   import { currentFilter } from '$lib/stores/contentStore';
   
   let sidebarItems = {
-    marke: { name: 'Brands', items: [], keys: [] },
-    fahrradtyp: { name: 'Bicycle Types', items: [], keys: [] },
-    antrieb: { name: 'Drive Systems', items: [], keys: [] }
+    marke: { name: 'Marke', items: [], keys: [] },
+    fahrradtyp: { name: 'Fahrradtyp', items: [], keys: [] },
+    antrieb: { name: 'Antrieb', items: [], keys: [] }
   };
   
   let loading = true;
   
-  // Current active filter - default to empty (show all)
-  let activeFilter = '';
+  // Current active filter - default to Velotraum
+  let activeFilter = 'velotraum';
   
   // Function to extract unique values from taxonomies
   function extractCategories(bikes) {
@@ -45,17 +45,17 @@
     
     sidebarItems = {
       marke: {
-        name: 'Brands',
+        name: 'Marke',
         items: markeKeys.map(formatLabel),
         keys: markeKeys
       },
       fahrradtyp: {
-        name: 'Bicycle Types',
+        name: 'Fahrradtyp',
         items: fahrradtypKeys.map(formatLabel),
         keys: fahrradtypKeys
       },
       antrieb: {
-        name: 'Drive Systems',
+        name: 'Antrieb',
         items: antriebKeys.map(formatLabel),
         keys: antriebKeys
       }
@@ -83,6 +83,8 @@
       // Keep default empty state
     } finally {
       loading = false;
+      // Set default filter to velotraum
+      currentFilter.set('velotraum');
     }
   });
   
