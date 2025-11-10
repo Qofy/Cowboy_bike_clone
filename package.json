@@ -11,7 +11,8 @@
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"json-server": "json-server --watch data/accessories.json --port 3001",
-		"dev:all": "concurrently \"npm run dev\" \"npm run json-server\""
+		"server": "json-server --watch data/service.json --port 3002",
+		"dev:all": "concurrently \"npm run dev\" \"npm run json-server\" \"npm run server\""
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",

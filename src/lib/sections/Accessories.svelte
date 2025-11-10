@@ -110,6 +110,7 @@
     </div>
     {/if}
     <div class="flex justify-center mt-8">
+      <!-- svelte-ignore a11y_invalid_attribute -->
       <a href="#" class="bg-[#c51a1b] text-white px-5 py-2.5 rounded-[50px] font-bold"> View all > </a>
     </div>
 </div>
