@@ -7,9 +7,7 @@ const navs = ["Wheels", "Overview", "Accessories", "Service", "Ergonomics", "Act
 
 $:navLink =navs.map((nav, i)=>nav.toLowerCase()
 )
-$:{
-  console.log("nav",navLink)
-}
+
 </script>
 
 <header 
@@ -17,10 +15,10 @@ $:{
 >
   <!-- <img src={logo} alt="Logo"> -->
   <nav>
-    {#each navs as nav}
+    {#each navs as nav, i}
       <li>
         <!-- svelte-ignore a11y_invalid_attribute -->
-        <a href="#{navLink}" on:click={(e) => e.preventDefault()}>
+        <a href="#{navLink[i]}">
           {nav}
         </a>
       </li>
